@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبة القرّاء - مشغّل القرآن الكريم</title>
+    <meta name="description" content="استمع إلى القرآن الكريم بأصوات أكثر من 150 قارئاً وبمختلف الروايات، مع مواقيت الصلاة ومؤقّت النوم والتحميل. صدقة جارية، بلا تسجيل ولا إعلانات.">
+    <meta name="theme-color" content="#0A3324">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icon-16.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta property="og:title" content="مشغل القرآن الكريم">
+    <meta property="og:description" content="استمع إلى القرآن الكريم بأصوات أكثر من 150 قارئاً وبمختلف الروايات، مع مواقيت الصلاة ومؤقّت النوم والتحميل. صدقة جارية، بلا تسجيل ولا إعلانات.">
+    <meta property="og:image" content="https://salah-eddine-program.github.io/The-Reciters-Library_V_0.3/icon-512.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Amiri+Quran&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+<header class="top">
+    <a class="brand" href="#top"><img src="icon-96.png" alt="" width="38" height="38"><span>مكتبة القرّاء</span></a>
+    <nav class="navlinks" aria-label="التنقل الرئيسي">
+        <a href="#top">الرئيسية</a>
+        <a href="#reciters-section">القرّاء</a>
+        <a href="#surahs-section">السور</a>
+        <button type="button" data-go="prayer">مواقيت الصلاة</button>
+    </nav>
+    <div class="theme-switch" id="theme-toggle"><div class="switch-handle"></div></div>
+</header>
+
+<main>
+    <section class="hero" id="top">
+    <div class="hero-art" aria-hidden="true"><div class="moon"></div><svg class="skyline" viewBox="0 0 1200 160" preserveAspectRatio="xMidYMax slice"><g>
+<rect y="148" width="1200" height="12"/>
+<path d="M800 148V100a60 60 0 0 1 120 0v48z"/><rect x="857" y="26" width="6" height="16"/>
+<path d="M770 148V52l8-30 8 30v96zM934 148V52l8-30 8 30v96z"/>
+<path d="M960 148v-30a28 28 0 0 1 56 0v30zM700 148v-26a24 24 0 0 1 48 0v26z"/>
+<path d="M300 148v-40a50 50 0 0 1 100 0v40z"/><path d="M270 148V70l7-24 7 24v78zM416 148V70l7-24 7 24v78z"/>
+</g></svg></div>
+    <div class="hero-in">
+        <div class="hero-meta">
+            <span class="hpill"><i class="fas fa-moon"></i><span id="hijri-date">جاري التحميل...</span></span>
+            <span class="hpill greg"><i class="fas fa-calendar-day"></i><span id="gregorian-date">جاري التحميل...</span></span>
+            <button type="button" class="hpill" data-go="prayer"><i class="fas fa-mosque"></i><span id="next-prayer">جاري التحميل...</span></button>
+        </div>
+        <p class="bism">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+        <h1 class="hero-title">مكتبة القرّاء</h1>
+        <p class="hero-sub">رفيقك مع القرآن الكريم</p>
+        <p class="hero-tag">استمع • تعلّم • اقترب من الله</p>
+        <div class="hsearch"><i class="fas fa-search"></i><input type="search" id="hero-search" placeholder="ابحث عن قارئ أو سورة" aria-label="ابحث عن قارئ أو سورة"><button type="button" id="hero-search-btn">بحث</button></div>
+        <div class="tiles">
+            <button type="button" class="tile" data-go="reciters-section"><i class="fas fa-user"></i><span>القرّاء</span></button>
+            <button type="button" class="tile" data-go="surahs-section"><i class="fas fa-book-open"></i><span>السور</span></button>
+            <button type="button" class="tile" data-go="prayer"><i class="fas fa-clock"></i><span>مواقيت الصلاة</span></button>
+            <button type="button" class="tile" data-go="bookmark"><i class="fas fa-star"></i><span>العلامات</span></button>
+            <button type="button" class="tile" data-go="downloads"><i class="fas fa-download"></i><span>التحميلات</span></button>
+        </div>
+    </div>
+</section>
+
+    <div class="toolbar">
+        <label class="chip select-wrap"><i class="fas fa-filter"></i>
+            <select id="riwaya-filter" class="custom-select" aria-label="تصفية حسب الرواية"><option value="">كل الروايات</option></select>
+        </label>
+        <div class="chip setting-option" data-setting="auto-next-surah"><span class="custom-checkbox"></span><input type="checkbox" id="auto-next-surah" hidden>السورة التالية تلقائياً</div>
+        <div class="chip setting-option" data-setting="auto-next-reciter"><span class="custom-checkbox"></span><input type="checkbox" id="auto-next-reciter" hidden>تبديل القارئ تلقائياً</div>
+        <div class="chip setting-option" data-setting="repeat-mode"><span class="custom-checkbox"></span><input type="checkbox" id="repeat-mode" hidden>إعادة مستمرة</div>
+    </div>
+
+    <div class="layout">
+        <section class="panel" id="reciters-section">
+            <div class="panel-h"><h2>القرّاء</h2><span class="count" id="reciters-count">0</span></div>
+            <div class="search"><i class="fas fa-search"></i><input type="search" id="reciter-search" placeholder="ابحث عن قارئ" aria-label="ابحث عن قارئ"></div>
+            <div class="content-list" id="reciters-container"><div class="loading-container"><i class="fas fa-circle-notch fa-spin"></i><p>جاري تحميل القراء...</p></div></div>
+        </section>
+        <section class="panel" id="surahs-section">
+            <div class="panel-h"><h2>السور</h2><span class="count" id="surahs-count">114</span></div>
+            <div class="search"><i class="fas fa-search"></i><input type="search" id="surah-search" placeholder="ابحث عن سورة" aria-label="ابحث عن سورة"></div>
+            <div class="content-list" id="surahs-container"><div class="loading-container"><i class="fas fa-circle-notch fa-spin"></i><p>جاري تحميل السور...</p></div></div>
+        </section>
+    </div>
+
+    <footer class="foot">
+        <div><b>صدقة جارية</b> عن أرواح أجدادنا ووالدينا رحمهم الله</div>
+        <div>التلاوات من mp3quran.net ومواقيت الصلاة من Aladhan</div>
+        <div>&copy; <span id="year">2025</span> <button class="link-btn" id="floating-about-btn" type="button">حول الموقع</button></div>
+    </footer>
+</main>
+
+<div hidden><audio id="audio-player"></audio></div>
+
+<div class="player">
+    <div class="pb-now">
+        <div class="pb-art" id="pb-art"><i class="fas fa-book-quran"></i></div>
+        <div class="pb-txt">
+            <div class="pb-title" id="current-surah-label">اختر سورة</div>
+            <div class="pb-sub" id="current-reciter-label">اختر قارئاً</div>
+        </div>
+    </div>
+    <div class="pb-mid">
+        <div class="pb-ctl">
+            <button class="ib" id="pb-prev" aria-label="السورة السابقة"><i class="fas fa-forward-step"></i></button>
+            <button class="ib play" id="pb-play" aria-label="تشغيل"><i class="fas fa-play"></i></button>
+            <button class="ib" id="pb-next" aria-label="السورة التالية"><i class="fas fa-backward-step"></i></button>
+        </div>
+        <div class="pb-seek"><span id="pb-cur">0:00</span><input type="range" id="pb-seek" min="0" max="0" step="1" value="0" aria-label="موضع التشغيل"><span id="pb-dur">0:00</span></div>
+    </div>
+    <div class="pb-end"><div class="vol"><i class="fas fa-volume-high"></i><input type="range" id="pb-vol" min="0" max="1" step="0.05" value="1" aria-label="مستوى الصوت"></div>
+    <details class="more">
+        <summary class="ib" aria-label="المزيد"><i class="fas fa-ellipsis"></i></summary>
+        <div class="more-pop">
+            <label class="pop-row" for="speed-select"><span><i class="fas fa-gauge-high"></i> السرعة</span>
+                <select id="speed-select"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="2">2×</option></select></label>
+            <label class="pop-row" for="sleep-select"><span><i class="fas fa-bed"></i> مؤقّت النوم</span>
+                <select id="sleep-select"><option value="0">إيقاف</option><option value="15">15 دقيقة</option><option value="30">30 دقيقة</option><option value="45">45 دقيقة</option><option value="60">ساعة</option><option value="90">ساعة ونصف</option></select></label>
+            <button class="pop-btn" id="save-bookmark-btn"><i class="fas fa-bookmark"></i> حفظ الموضع</button>
+            <button class="pop-btn" id="load-bookmark-btn"><i class="fas fa-history"></i> العودة للموضع المحفوظ</button>
+            <button class="pop-btn" id="download-surah-btn"><i class="fas fa-cloud-download-alt"></i> تحميل السورة</button>
+            <button class="pop-btn" id="download-mushaf-btn"><i class="fas fa-archive"></i> تحميل المصحف كاملاً</button>
+        </div>
+    </details></div>
+</div>
+
+<!-- نافذة حول الموقع -->
+<div class="about-overlay" id="about-overlay">
+    <div class="about-modal">
+        <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
+        <div class="modal-header"><h2 class="modal-title"><i class="fas fa-mosque"></i> حول مشغّل القرآن الكريم</h2></div>
+
+        <div class="modal-section">
+            <h3 class="section-heading"><i class="fas fa-heart"></i> لماذا هذا الموقع؟</h3>
+            <p>هذا الموقع صدقة جارية عن أرواح أجدادنا ووالدينا، رحمهم الله. أردناه مكاناً هادئاً تستمع فيه إلى كتاب الله بصوت من تحب من القرّاء، في أي وقت، دون حسابات ولا إعلانات. نسأل الله أن يتقبّله خالصاً لوجهه الكريم.</p>
+        </div>
+
+        <div class="modal-section">
+            <h3 class="section-heading"><i class="fas fa-star"></i> ماذا يقدّم؟</h3>
+            <ul>
+                <li>تلاوات أكثر من 150 قارئاً بمختلف الروايات، مع بحث سريع وتصفية حسب الرواية.</li>
+                <li>انتقال تلقائي إلى السورة التالية أو القارئ التالي، وإعادة مستمرة.</li>
+                <li>مفضلة للقرّاء والسور، وحفظ موضع الاستماع للعودة إليه لاحقاً.</li>
+                <li>مؤقّت للنوم وتحكّم في سرعة التشغيل، وأزرار التحكم على شاشة القفل.</li>
+                <li>تحميل السورة أو المصحف كاملاً للاستماع بلا إنترنت.</li>
+                <li>مواقيت الصلاة بحسب موقعك إن سمحت بذلك، والتاريخ الهجري.</li>
+                <li>وضع ليلي، وتصميم يناسب الجوال، ويمكن تثبيته كتطبيق.</li>
+            </ul>
+        </div>
+
+        <div class="modal-section">
+            <h3 class="section-heading"><i class="fas fa-keyboard"></i> اختصارات لوحة المفاتيح</h3>
+            <p>المسافة للتشغيل والإيقاف، والسهمان لتقديم الصوت وتأخيره عشر ثوانٍ، والحرفان N وP للسورة التالية والسابقة، ومعهما Shift للقارئ التالي والسابق.</p>
+        </div>
+
+        <div class="modal-section">
+            <h3 class="section-heading"><i class="fas fa-database"></i> المصادر</h3>
+            <p>التلاوات من <strong>mp3quran.net</strong>، ومواقيت الصلاة والتاريخ الهجري من <strong>Aladhan API</strong>. الموقع مبني بـ HTML وCSS وJavaScript دون أطر خارجية.</p>
+        </div>
+
+        <div class="modal-section prayer-section">
+            <h3 class="section-heading"><i class="fas fa-hands-praying"></i> دعاء</h3>
+            <p class="prayer-text">اللهم اجعل هذا العمل خالصاً لوجهك الكريم، وتقبّله صدقةً جاريةً لأرواح أجدادنا وجميع المسلمين، وانفع به كل من يستمع إليه، واجعله سبباً في هدايتهم وقربهم منك. آمين يا أرحم الراحمين.</p>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+(function () {
+    var $ = function (s, r) { return (r || document).querySelector(s); };
+    var store = {
+        get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+        set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+    };
+
+    // الوضع الليلي (يتبع إعداد الجهاز عند أول زيارة)
+    var toggle = $('#theme-toggle');
+    toggle.setAttribute('role', 'switch');
+    toggle.setAttribute('tabindex', '0');
+    toggle.setAttribute('aria-label', 'الوضع الليلي');
+    function applyTheme(dark) {
+        document.body.classList.toggle('dark-mode', dark);
+        toggle.classList.toggle('active', dark);
+        toggle.setAttribute('aria-checked', String(dark));
+        store.set('dark_mode', String(dark));
+    }
+    var saved = store.get('dark_mode');
+    applyTheme(saved === null ? window.matchMedia('(prefers-color-scheme: dark)').matches : saved === 'true');
+    toggle.addEventListener('click', function () { applyTheme(!document.body.classList.contains('dark-mode')); });
+    toggle.addEventListener('keydown', function (e) {
+        if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle.click(); }
+    });
+
+    // خيارات التشغيل: تُحدِّث الحقل المخفي وتُطلق change ليلتقطها script.js
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.setting-option').forEach(function (opt) {
+            var input = document.getElementById(opt.dataset.setting);
+            var box = $('.custom-checkbox', opt);
+            opt.setAttribute('role', 'checkbox');
+            opt.setAttribute('tabindex', '0');
+            function sync() {
+                box.classList.toggle('checked', input.checked);
+                opt.classList.toggle('active', input.checked);
+                opt.setAttribute('aria-checked', String(input.checked));
+            }
+            function flip() { input.checked = !input.checked; input.dispatchEvent(new Event('change')); }
+            opt.addEventListener('click', flip);
+            opt.addEventListener('keydown', function (e) {
+                if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); flip(); }
+            });
+            input.addEventListener('change', sync);
+            sync();
+        });
+    });
+
+    // نافذة حول الموقع
+    var overlay = $('#about-overlay'), openBtn = $('#floating-about-btn'), closeBtn = $('#modal-close');
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    openBtn.setAttribute('aria-label', 'حول الموقع');
+    closeBtn.setAttribute('aria-label', 'إغلاق');
+    function openAbout() { overlay.classList.add('active'); document.body.style.overflow = 'hidden'; closeBtn.focus(); }
+    function closeAbout() { overlay.classList.remove('active'); document.body.style.overflow = ''; openBtn.focus(); }
+    openBtn.addEventListener('click', openAbout);
+    closeBtn.addEventListener('click', closeAbout);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) closeAbout(); });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) closeAbout();
+    });
+
+    // سنة الحقوق + التطبيق القابل للتثبيت
+    var y = $('#year'); if (y) y.textContent = new Date().getFullYear();
+    if ('serviceWorker' in navigator && /^https?:/.test(location.protocol)) {
+        navigator.serviceWorker.register('sw.js').catch(function () {});
+    }
+})();
+</script>
+<script>
+(function () {
+    var $ = function (id) { return document.getElementById(id); };
+    document.querySelectorAll('[data-go]').forEach(function (b) {
+        b.addEventListener('click', function () {
+            var g = b.dataset.go;
+            if (g === 'prayer') { if (window.showPrayerTimes) window.showPrayerTimes(); }
+            else if (g === 'bookmark') $('load-bookmark-btn').click();
+            else if (g === 'downloads') document.querySelector('.more').open = true;
+            else $(g).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+    var hs = $('hero-search'), hb = $('hero-search-btn');
+    function run() {
+        ['reciter-search', 'surah-search'].forEach(function (id) {
+            var i = $(id); i.value = hs.value; i.dispatchEvent(new Event('input', { bubbles: true }));
+        });
+    }
+    hs.addEventListener('input', run);
+    hs.addEventListener('keydown', function (e) { if (e.key === 'Enter') hb.click(); });
+    hb.addEventListener('click', function () { run(); $('reciters-section').scrollIntoView({ behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>
