@@ -1,268 +1,204 @@
-# The Noble Quran Player - مشغل القرآن الكريم 🕌
+# 📖 The Reciters Library V0.4.1
 
 <div align="center">
 
-**A modern and comprehensive web platform for listening to the Holy Quran with the voices of the most famous reciters**
+  <img src="https://readme-typing-svg.demolab.com?font=Cairo&weight=700&size=28&duration=3000&pause=1000&color=16A34A&center=true&vCenter=true&width=650&lines=مكتبة+القراء+القرآنية;استمع+إلى+القرآن+الكريم+بسهولة;The+Reciters+Library" alt="Typing SVG" />
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-🌐%20View%20Live-1e88e5?style=for-the-badge)](https://salah-eddine-program.github.io/The-Reciters-Library_V_0.3/)
-[![Arabic Support](https://img.shields.io/badge/Language-العربية-green?style=for-the-badge)]()
-[![Responsive](https://img.shields.io/badge/Design-Responsive-orange?style=for-the-badge)]()
-[![Islamic](https://img.shields.io/badge/Content-Islamic-43a047?style=for-the-badge)]()
+  <p>
+    **مكتبة قرآنية إلكترونية للاستماع إلى القرآن الكريم**
+    <br>
+    A modern web application for listening to the Holy Quran.
+  </p>
+
+  <p>
+    <a href="https://salah-eddine-program.github.io/The-Reciters-Library_V_0.4.1/">
+      <img src="https://img.shields.io/badge/🌐_Live_Demo-Visit_Website-16A34A?style=for-the-badge" alt="Live Demo">
+    </a>
+    <a href="https://github.com/salah-eddine-program/The-Reciters-Library_V_0.4">
+      <img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github" alt="GitHub">
+    </a>
+  </p>
+
+  ![Version](https://img.shields.io/badge/Version-0.4.1-16A34A?style=flat-square)
+  ![Status](https://img.shields.io/badge/Status-Active-success?style=flat-square)
+  ![Platform](https://img.shields.io/badge/Platform-Web-blue?style=flat-square)
+  ![Language](https://img.shields.io/badge/Language-Arabic%20%7C%20English-orange?style=flat-square)
 
 </div>
 
 ---
 
-## 📖 نظرة عامة
+## 🌙 نبذة عن المشروع | About
 
-**مشغل القرآن الكريم** هو تطبيق ويب إسلامي مبتكر وحديث، مُصمم خصيصاً لتوفير تجربة استماع مميزة للقرآن الكريم. يجمع التطبيق بين التصميم العصري والوظائف المتقدمة لخدمة المسلمين في جميع أنحاء العالم.
+**The Reciters Library** هو تطبيق ويب يهدف إلى توفير تجربة سهلة ومريحة للاستماع إلى القرآن الكريم، من خلال مكتبة تضم مجموعة من القراء والروايات والسور القرآنية.
 
-### 🎯 رسالتنا
-> *"وَنُنَزِّلُ مِنَ الْقُرْآنِ مَا هُوَ شِفَاءٌ وَرَحْمَةٌ لِّلْمُؤْمِنِينَ"*
+تم تطوير المشروع باستخدام تقنيات الويب الحديثة، مع التركيز على سهولة الاستخدام، وسرعة الوصول إلى المحتوى، والتوافق مع مختلف الأجهزة.
 
-هذا المشروع صدقة جارية مُهداة إلى أرواح أجدادنا الكرام، رحمهم الله تعالى، وهدية لكل مسلم يسعى للتقرب إلى الله من خلال كتابه العزيز.
-
----
-
-## ✨ المميزات الرئيسية
-
-### 🎵 تجربة الاستماع
-- **🔄 التشغيل التلقائي المتقدم**: انتقال سلس بين السور والقراء
-- **🎛️ تحكم كامل**: إيقاف، تشغيل، تقديم، تأخير
-- **🔁 أوضاع التكرار**: تكرار السورة أو المصحف كاملاً
-- **⚡ تحميل فوري**: استجابة سريعة وتحميل ذكي
-- **⭐ المفضلة**: نجمة على كل قارئ وسورة، والمفضلة تظهر أولاً
-- **⏱️ مؤقّت النوم وسرعة التشغيل**: من 0.75× إلى 2×
-- **📲 تطبيق قابل للتثبيت (PWA)**: أزرار شاشة القفل وعمل الواجهة بدون إنترنت
-
-### 👥 مكتبة القراء
-- **🌟 نخبة من أشهر القراء**: أكثر من 200 قارئ
-- **📚 تنوع الروايات**: حفص، ورش، قالون، والمزيد
-- **🔍 البحث الذكي**: البحث السريع في أسماء القراء
-- **📊 فلترة متقدمة**: تصنيف حسب الرواية
-
-### 📱 تصميم متجاوب
-- **🌙 الوضع الليلي**: حماية للعينين أثناء الاستماع الليلي
-- **☀️ الوضع النهاري**: واجهة مشرقة ومريحة
-- **📱 متوافق مع جميع الأجهزة**: هاتف، تابلت، حاسوب
-- **🎨 تصميم أنيق**: واجهة مستخدم حديثة وبديهية
-
-### 🕐 المعلومات الإسلامية
-- **📅 التاريخ الهجري**: عرض التاريخ الهجري بدقة
-- **🕌 مواقيت الصلاة**: أوقات الصلاة للموقع الحالي
-- **🌍 التوطين**: دعم كامل للغة العربية
-
-### 💾 إدارة المحتوى
-- **💾 حفظ الموضع**: استكمال الاستماع من حيث توقفت
-- **⬇️ تحميل السور**: تحميل السور المفضلة للاستماع دون إنترنت
-- **📦 تحميل المصحف كاملاً**: على أجزاء مضغوطة مع شريط تقدّم وإمكانية الإلغاء
-- **🔖 الإشارات المرجعية**: حفظ واسترجاع المواضع المفضلة
+**The Reciters Library** is a web application designed to provide a simple and comfortable Quran listening experience, offering access to Quran reciters, narrations, and Surahs.
 
 ---
 
-## 🚀 العرض التوضيحي
+## ✨ المميزات | Features
 
-### 🖥️ واجهة المستخدم
+- 📖 تصفح سور القرآن الكريم.
+- 🎙️ مكتبة متنوعة من القراء.
+- 🔍 البحث عن القراء والسور.
+- 📚 تصفية القراء حسب الرواية.
+- ▶️ مشغل صوتي للاستماع إلى التلاوات.
+- ⏭️ الانتقال التلقائي إلى السورة التالية.
+- 🔁 إمكانية تكرار التشغيل.
+- ⭐ حفظ القراء والسور المفضلة.
+- ⬇️ إمكانية تحميل التلاوات.
+- 🌙 الوضع الليلي والوضع النهاري.
+- 🕌 عرض مواقيت الصلاة.
+- 📅 عرض التاريخ الهجري والميلادي.
+- ⏱️ مؤقت إيقاف التشغيل.
+- 📱 تصميم متجاوب مع الهواتف والأجهزة اللوحية والحواسيب.
+- 📲 دعم خصائص تطبيقات الويب التقدمية (PWA).
+
+---
+
+## 🛠️ Technologies Used
+
+| Technology | Description |
+|---|---|
+| HTML5 | Application structure |
+| CSS3 | Styling and responsive design |
+| JavaScript | Application logic and interactions |
+| mp3quran API | Quran reciters and audio content |
+| AlAdhan API | Prayer times and date information |
+| PWA | Progressive Web App support |
+| GitHub Pages | Website hosting |
+
+---
+
+## 📸 Screenshots
+
+أضف صوراً حقيقية من موقعك داخل مجلد `screenshots`، ثم استعمل المسارات التالية بعد التأكد من أسماء الصور:
+
+| Home Page | Audio Player |
+|---|---|
+| `screenshots/home.png` | `screenshots/player.png` |
+
+مثال لإظهار الصور:
+
+```markdown
+![Home Page](screenshots/home.png)
+![Audio Player](screenshots/player.png)
+```
+
+---
+
+## 🌐 Live Demo
+
+يمكنك تجربة التطبيق مباشرة من خلال الرابط:
 
 <div align="center">
 
-| الوضع النهاري | الوضع الليلي |
-|:---:|:---:|
-| ![Light Mode](img1.png) | ![Dark Mode](img4.png) |
+### [🚀 Open The Reciters Library V0.4.1](https://salah-eddine-program.github.io/The-Reciters-Library_V_0.4.1/)
 
 </div>
 
-### 📲 التجاوب على الأجهزة
+---
+
+## 📡 APIs & Data Sources
+
+يعتمد المشروع على مصادر خارجية لتوفير بعض البيانات والخدمات:
+
+- **[mp3quran API](https://mp3quran.net/)** — بيانات القراء والسور والتلاوات الصوتية.
+- **[AlAdhan API](https://aladhan.com/prayer-times-api)** — مواقيت الصلاة والتواريخ الهجرية.
+
+---
+
+## 📂 Project Structure
+
+مثال توضيحي لتنظيم ملفات المشروع، ويجب تعديله ليتوافق مع بنية المستودع الفعلية:
+
+```text
+The-Reciters-Library_V_0.4.1/
+│
+├── index.html
+├── README.md
+│
+├── css/
+│   └── style.css
+│
+├── js/
+│   └── script.js
+│
+├── assets/
+│   ├── images/
+│   ├── icons/
+│   └── fonts/
+│
+├── screenshots/
+│   ├── home.png
+│   └── player.png
+│
+└── manifest.json
+```
+
+---
+
+## 🚀 Version History
+
+| Version | Description |
+|---|---|
+| V0.1 | Initial project release |
+| V0.2 | Improvements and additional features |
+| V0.3 | Interface and functionality improvements |
+| V0.4 | Major project update |
+| V0.4.1 | Further improvements and refinements |
+
+---
+
+## 🔮 Future Improvements
+
+- إضافة المزيد من القراء والروايات.
+- تحسين تجربة البحث والتصفح.
+- تطوير مشغل الصوت.
+- إضافة المزيد من خيارات تخصيص التطبيق.
+- تحسين الأداء والتوافق مع مختلف الأجهزة.
+- مواصلة تطوير الواجهة وتجربة المستخدم.
+
+---
+
+## 🤝 Contributing
+
+المشروع قابل للتطوير والتحسين.
+
+إذا كانت لديك أفكار أو اقتراحات أو اكتشفت مشكلة، يمكنك فتح **Issue** في GitHub للمساهمة في تحسين المشروع.
+
+---
+
+## 👨‍💻 Developer
 
 <div align="center">
 
-| 🖥️ سطح المكتب | 📱 الهاتف المحمول |
-|:---:|:---:|
-| ![Desktop View](img1.png) | ![Mobile View](img5.png) |
+### Salah Eddine Benettouati
+
+**Electronics Engineer | Embedded Systems Enthusiast**
+
+<a href="https://github.com/salah-eddine-program">
+  <img src="https://img.shields.io/badge/GitHub-salah--eddine--program-181717?style=for-the-badge&logo=github" alt="GitHub Profile">
+</a>
 
 </div>
 
 ---
 
-## 🛠️ التقنيات المستخدمة
+## 📜 License
 
-### Frontend
-```javascript
-🌐 HTML5        // بنية الموقع
-🎨 CSS3         // التصميم والتنسيق  
-⚡ JavaScript   // الوظائف التفاعلية
-📱 Responsive   // التصميم المتجاوب
-```
-
-### APIs & Services
-```javascript
-🎵 mp3quran.net API    // مصدر التلاوات
-🕌 Aladhan API         // التاريخ الهجري ومواقيت الصلاة
-📦 JSZip               // ضغط وتحميل الملفات
-🌐 Axios               // طلبات HTTP
-```
-
-### Features
-```javascript
-🎯 Service Worker      // التخزين المؤقت
-⌨️ Keyboard Shortcuts  // اختصارات المفاتيح
-🔄 Auto-continuation   // التشغيل التلقائي
-💾 Local Storage       // الحفظ المحلي
-```
-
----
-
-## 🖼️ صور القرّاء
-
-لا يوفّر mp3quran صوراً للقرّاء، لذا تُضاف يدوياً:
-
-1. ضع الصورة داخل مجلد `photos/` (مربعة، 256×256، بصيغة WebP أو JPG).
-2. اكتب مسارها في `reciter-photos.json` مفتاحه رقم القارئ:
-
-```json
-{
-  "1": "photos/ibrahim-alakdar.webp"
-}
-```
-
-3. لمعرفة أرقام القرّاء افتح الموقع ثم Console (`F12`) واكتب `listReciters()`.
-
-القارئ بلا صورة يظهر بحرفه الأول تلقائياً. استخدم صوراً تملك حق نشرها أو مرخّصة (مثل Wikimedia Commons) واذكر المصدر.
-
----
-
-## ⌨️ اختصارات المفاتيح
-
-| المفتاح | الوظيفة |
-|:---:|:---|
-| `مسافة` | ⏯️ تشغيل/إيقاف |
-| `→` | ⏩ تقديم 10 ثواني |
-| `←` | ⏪ تأخير 10 ثواني |
-| `↑` | 🔊 رفع الصوت |
-| `↓` | 🔉 خفض الصوت |
-| `n` | ⏭️ السورة التالية |
-| `p` | ⏮️ السورة السابقة |
-| `N` | 👤 القارئ التالي |
-| `P` | 👤 القارئ السابق |
-| `r` | 🔁 تبديل وضع الإعادة |
-| `a` | 🔄 تبديل التشغيل التلقائي |
-
----
-
-## 🎨 لقطات الشاشة
-
-<details>
-<summary>🖼️ مشاهدة لقطات الشاشة</summary>
-
-### الصفحة الرئيسية
-![الصفحة الرئيسية](img1.png)
-
-### مشغل الصوت
-![مشغل الصوت](img2.png)
-
-### صفحة حول الموقع
-![صفحة حول الموقع](img3.png)
-
-</details>
-
----
-
-## 📚 كيفية الاستخدام
-
-### 🎵 تشغيل التلاوة
-1. **اختر القارئ** من القائمة الجانبية
-2. **حدد السورة** التي تريد الاستماع إليها
-3. **اضغط على زر التشغيل** أو استخدم مسافة للتشغيل
-
-### ⚙️ الإعدادات المتقدمة
-- **التشغيل التلقائي**: تفعيل الانتقال التلقائي بين السور
-- **وضع التكرار**: إعادة تشغيل مستمرة
-- **الوضع الليلي**: للاستماع المريح في الليل
-
-### 💾 التحميل والحفظ
-- **حفظ الموضع**: لاستكمال الاستماع لاحقاً
-- **تحميل السورة**: للاستماع دون إنترنت
-- **تحميل المصحف**: تحميل مصحف كامل
-
----
-
-## 🌟 المساهمة والتطوير
-
-### 🤝 المساهمة
-نرحب بمساهماتكم لتطوير هذا المشروع الخيري:
-
-```bash
-# استنساخ المشروع
-git clone https://github.com/salah-eddine-program/The-Reciters-Library_V_0.3.git
-
-# الدخول إلى المجلد
-cd The-Reciters-Library_V_0.3
-
-# فتح في المتصفح
-open index.html
-```
-
-### 🎯 الخطط المستقبلية
-- [ ] 📱 تطبيق الهاتف المحمول
-- [ ] 🔍 البحث في نص القرآن
-- [ ] 📊 إحصائيات الاستماع
-- [ ] 🌍 دعم لغات متعددة
-- [ ] 🎨 سمات إضافية
-- [ ] 🤖 ذكاء اصطناعي للتوصيات
-
----
-
-## 📞 التواصل والدعم
-
-<div align="center">
-
-### 🤲 دعواتكم هي أعظم مكافأة لنا
-
-**اللهم تقبل منا هذا العمل واجعله صدقة جارية عن أرواح أجدادنا**
-
-</div>
-
-### 📧 للتواصل
-- 💬 **المشاكل التقنية**: [GitHub Issues](https://github.com/salah-eddine-program/The-Reciters-Library_V_0.3/issues)
-- 💡 **الاقتراحات**: نرحب بجميع الأفكار الإبداعية
-- 🤝 **المساهمة**: ساهم في نشر الخير
-
----
-
-## 📄 الترخيص والحقوق
-
-```
-🕌 مشغل القرآن الكريم
-صدقة جارية عن أجدادي، وبرّ لوالديّ
-جعل الله هذا العمل في ميزان حسناتنا وحسنات جميع المسلمين
-
-جميع الحقوق محفوظة © 2025
-```
-
-### 📚 مصادر البيانات
-- **🎵 التلاوات**: [mp3quran.net](https://www.mp3quran.net)
-- **🕌 أوقات الصلاة**: [Aladhan API](https://aladhan.com/prayer-times-api)
-- **🎨 الأيقونات**: [FontAwesome](https://fontawesome.com)
-- **📝 الخطوط**: [Google Fonts - Cairo](https://fonts.google.com/specimen/Cairo)
+لم يتم تحديد ترخيص رسمي للمشروع بعد. يرجى مراجعة المستودع لمعرفة شروط الاستخدام وإعادة التوزيع.
 
 ---
 
 <div align="center">
 
-### 🌟 إذا أعجبك المشروع، لا تنس إعطاؤه نجمة ⭐
+**اللهم اجعل القرآن الكريم ربيع قلوبنا ونور صدورنا.**
 
-**"خير الناس أنفعهم للناس"**
+Made with ❤️ for the Holy Quran.
 
-[![GitHub Stars](https://img.shields.io/github/stars/salah-eddine-program/The-Reciters-Library_V_0.3?style=social)](https://github.com/salah-eddine-program/The-Reciters-Library_V_0.3/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/salah-eddine-program/The-Reciters-Library_V_0.3?style=social)](https://github.com/salah-eddine-program/The-Reciters-Library_V_0.3/network/members)
-
-### 🤲 ادعُ لنا بالخير والبركة
+⭐ إذا أعجبك المشروع، لا تنسَ وضع نجمة للمستودع على GitHub.
 
 </div>
-
----
-<div align="center">
-
-</div>
-
-
